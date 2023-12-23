@@ -1,4 +1,4 @@
-from model.model import predict
+from model.regression_model import predict
 import warnings
 
 warnings.filterwarnings('ignore')

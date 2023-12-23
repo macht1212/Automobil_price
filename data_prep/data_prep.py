@@ -1,17 +1,19 @@
 import os
 import pandas as pd
 import numpy as np
+import json
 
 
 def open_file(name: str) -> pd.DataFrame:
     return pd.read_csv(os.path.join(name + '.csv'))
 
 
-def types(data: pd.DataFrame) -> tuple:
-    category = list(data.select_dtypes('object').columns)
-    number = list(data.select_dtypes('number').columns)
+def category(data: pd.DataFrame) -> tuple:
+    return tuple(data.select_dtypes('object').columns)
 
-    return category, number
+
+def number(data: pd.DataFrame) -> tuple:
+    return tuple(data.select_dtypes('number').columns)
 
 
 def _flat_generator(list_):
@@ -84,5 +86,5 @@ def name_sep(data: pd.DataFrame) -> pd.DataFrame:
     return data
 
 
-
-
+def select_category_data(data: pd.DataFrame) -> tuple:
+    return tuple(data[c] for c in category(data))
