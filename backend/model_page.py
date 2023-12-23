@@ -76,7 +76,7 @@ def model_part():
         location_to_model
     ]
 
-    if st.button('Рассчитать:'):
+    if st.button('Рассчитать:', use_container_width=True):
         try:
             counted_price = int(round(predict(data_to_model, "data", "car_model")[0] * 1000, 0))
             st.header(f'Ориентировочная стоимость составит: {counted_price:,d} руб.')
