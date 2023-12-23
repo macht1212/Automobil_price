@@ -38,7 +38,8 @@ def model_part():
 
     selector = open_data('selector')
 
-    selector['Прочие'].append('Другой')
+    for k in selector.keys():
+        selector[k].append('Другой')
 
     model_to_model = st.selectbox('Модель', selector[name_to_model])
 
